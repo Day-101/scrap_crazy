@@ -22,4 +22,5 @@ liens.each_with_index do |lien, position|
 a << profile("https://www2.assemblee-nationale.fr#{(liens[position]["href"])}")
 end
 
+File.write("deputes.txt", a.join("\n"))
 puts a

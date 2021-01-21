@@ -17,4 +17,5 @@ liens.each_with_index do |lien, position|
 a << mail("http://www.annuaire-des-mairies.com#{(liens[position]["href"]).sub(/./, "")}")
 end
 
+File.write("mairies.txt", a.join("\n"))
 puts a

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
+page = Nokogiri::HTML(URI.open("https://coinmarketcap.com/all/views/all/"))
 
 def scrap_line(line) # line est un objet Nokogiri
   crypto = { line.css('td').css('div')[2].text.intern => line.css('td').css('div')[3].text.sub(/[$]/, '').to_f } # récupère 2 éléments et les introduits dans un hash

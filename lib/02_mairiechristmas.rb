@@ -15,7 +15,6 @@ liens = page.css(".lientxt")
 a = []
 liens.each_with_index do |lien, position|
 a << mail("http://www.annuaire-des-mairies.com#{(liens[position]["href"]).sub(/./, "")}")
-
 end
 
 puts a

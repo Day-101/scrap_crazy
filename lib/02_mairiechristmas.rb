@@ -9,12 +9,13 @@ return { page.xpath("/html/body/div/main/section[1]/div/div/div/h1").text.sub(/ 
 return ville
 end
 
-
 page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com/val-d-oise.html"))
 liens = page.css(".lientxt")
+
 a = []
+
 liens.each_with_index do |lien, position|
-a << mail("http://www.annuaire-des-mairies.com#{(liens[position]["href"]).sub(/./, "")}")
+	a << mail("http://www.annuaire-des-mairies.com#{(liens[position]["href"]).sub(/./, "")}")
 end
 
 File.write("mairies.txt", a.join("\n"))

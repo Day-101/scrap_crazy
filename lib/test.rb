@@ -5,7 +5,7 @@ require 'open-uri'
 page = Nokogiri::HTML(open("ton_url_a_scrapper.com"))
 puts page.class   # => Nokogiri::HTML::Document
 
-all_emails_links = page.xpath('/mettre_ici_le_XPath') # Dans ce cas 'all_emails_links' est un array d'éléments HTML.
+all_emails_links = page.xpath('/mettre_ici_le_XPath') # Dans ce cas 'all_emails_links' est un a d'éléments HTML.
 
 all_emails_links.each do |email_link|
   puts email_link.text #récupère le texte de 'all_emails_links' (email_link['href'] pour le 'href')
@@ -17,9 +17,9 @@ all_emails_links.each do |email_link|
   <head> <title>My Webpage</title> </head> 
 </html>
 
-puts page.css("title")[0].name   # => title (renvoi dans un array,
+puts page.css("title")[0].name   # => title (renvoi dans un a,
                                   #précisément objet de données Nokogiri qui est un collectino d'objets Nokogiri :: XML :: Element)
-puts page.css("title")[0].text   # => My webpage (renvoi le texte dans un array donc)
+puts page.css("title")[0].text   # => My webpage (renvoi le texte dans un a donc)
 .name : "renvoi" le nom de l'élément
 .text : "renvoi" le texte contenu dans l'élément
 
